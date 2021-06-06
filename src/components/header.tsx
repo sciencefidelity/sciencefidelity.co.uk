@@ -7,10 +7,10 @@ const Header = () => {
     <header>
       <nav>
         <ul>
-          <li>Flame</li>
-          <li>Coin</li>
-          <li>Scissors</li>
           <li>Ball</li>
+          <li>Coin</li>
+          <li className="active">Flame</li>
+          <li>Scissors</li>
         </ul>
       </nav>
     </header>
