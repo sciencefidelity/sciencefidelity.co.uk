@@ -1,22 +1,25 @@
-$background: hsl(169,90%,40%);
-$text: hsl(0,0%,95%);
+$background: hsla(0,0%,0%,0.5);
+$text: hsl(43, 43%, 88%);
 
 header {
-  height: 5rem;
-  background: $background;
+  position: fixed;
+  height: 4rem;
+  background: transparent;
   padding: 0 12rem;
+  width: 100vw;
 }
 
 ul {
-  font-size: 2.2rem;
+  font-size: 2rem;
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  line-height: 5rem;
-  text-transform: uppercase;
-  font-weight: 600;
+  line-height: 4rem;
+  text-transform: lowercase;
+  font-weight: 300;
   color: $text;
+  text-align: center;
 }
