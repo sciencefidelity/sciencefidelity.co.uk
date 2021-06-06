@@ -1,6 +1,6 @@
 import React from 'react'
 
-import video from '../videos/flame.mp4'
+import video from '../videos/coin.mp4'
 import '../scss/video.scss'
 
 const Video = () => {
