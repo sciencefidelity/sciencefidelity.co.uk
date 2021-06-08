@@ -1,0 +1,14 @@
+{
+  "name": "dancing-objects",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.32.11",
+    "typescript": "^4.2.3",
+    "vite": "^2.2.3"
+  }
+}
