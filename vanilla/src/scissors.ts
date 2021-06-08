@@ -1,10 +1,10 @@
 const html = document.documentElement
-const canvas = <HTMLCanvasElement> document.getElementById('ball')
+const canvas = <HTMLCanvasElement> document.getElementById('scissors')
 const context = canvas!.getContext('2d')
 
-const frameCount = 830
+const frameCount = 337
 const currentFrame = (index:number) => (
-  `../videos/ball/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
+  `../videos/scissors/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
 )
 
 document.body.style.height = `${frameCount * 3}vh`
