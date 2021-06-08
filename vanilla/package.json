@@ -1,6 +1,11 @@
 {
   "name": "dancing-objects",
   "version": "0.0.1",
+  "private": true,
+  "description": "Dancing scroll-based objects",
+  "version": "0.1.0",
+  "author": "Matt Cook <sciencefidelity@hotmail.com>",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
