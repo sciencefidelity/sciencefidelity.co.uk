@@ -8,11 +8,11 @@
 </svelte:head>
 
 <div id="nav">
-  <a sveltekit:prefetch href="./dance"><div>🏓</div></a>
-  <a sveltekit:prefetch href="./dance"><div>🪙</div></a>
-  <a sveltekit:prefetch href="./dance"><div>🔥</div></a>
-  <a sveltekit:prefetch href="./dance"><div>✂️</div></a>
-  <a sveltekit:prefetch href="./dance"><div>🙂</div></a>
+  <a sveltekit:prefetch href="/dance"><div>🏓</div></a>
+  <a sveltekit:prefetch href="/dance"><div>🪙</div></a>
+  <a sveltekit:prefetch href="/dance"><div>🔥</div></a>
+  <a sveltekit:prefetch href="/dance"><div>✂️</div></a>
+  <a sveltekit:prefetch href="/dance"><div>🙂</div></a>
 </div>
 
 <style lang="scss">
