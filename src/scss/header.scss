@@ -1,0 +1,29 @@
+$background: hsla(0,0%,0%,0.5);
+$text: hsl(43, 43%, 8%);
+
+header {
+  position: fixed;
+  height: 4rem;
+  background: transparent;
+  padding: 0 12rem;
+  width: 100vw;
+}
+
+.menu {
+  font-size: 3rem;
+  list-style: none;
+  padding: 0.6rem 0 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  line-height: 4rem;
+  text-transform: lowercase;
+  font-weight: 300;
+  color: $text;
+  text-align: center;
+  &__item {
+    cursor: pointer;
+  }
+}
+
