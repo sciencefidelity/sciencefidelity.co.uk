@@ -9,10 +9,10 @@ header {
   width: 100vw;
 }
 
-ul {
-  font-size: 2rem;
+.menu {
+  font-size: 3rem;
   list-style: none;
-  padding: 0;
+  padding: 0.6rem 0 0 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,8 +22,8 @@ ul {
   font-weight: 300;
   color: $text;
   text-align: center;
+  &__item {
+    cursor: pointer;
+  }
 }
 
-.active {
-  text-decoration: underline;
-}

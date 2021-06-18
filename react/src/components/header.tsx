@@ -6,12 +6,12 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <ul>
-          <li>🏓</li>
-          <li>🪙</li>
-          <li>🔥</li>
-          <li>✂️</li>
-          <li>🙂</li>
+        <ul className="menu">
+          <li className="menu__item">🏓</li>
+          <li className="menu__item">🪙</li>
+          <li className="menu__item">🔥</li>
+          <li className="menu__item">✂️</li>
+          <li className="menu__item">🙂</li>
         </ul>
       </nav>
     </header>
