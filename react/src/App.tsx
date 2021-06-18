@@ -2,14 +2,14 @@ import React from 'react'
 
 import Header from './components/header'
 import './scss/App.scss'
-import Video from './components/video'
+import Animation from './components/animation'
 
 const App = () => {
   return (
     <div className="App">
       <Header />
       <main>
-        <Video />
+        <Animation />
       </main>
     </div>
   );
