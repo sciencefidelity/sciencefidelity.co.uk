@@ -7,7 +7,7 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "lib": [
-      "es5", "es6", "dom", "dom.iterable"
+      "es5", "es6", "dom", "es2017", "dom.iterable"
     ],
     /* paths - import rewriting/resolving */
     "paths": {
