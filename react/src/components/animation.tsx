@@ -27,13 +27,17 @@ const Animation = () => {
     img.src = currentFrame(1)
     canvas.width=1920
     canvas.height=1080
-    img.onload=function(){
-      context!.drawImage(img, 0, 0)
+    img.onload=function() {
+      if (context !== null) {
+        context.drawImage(img, 0, 0)
+      }
     }
 
     const updateImage = (index:number) => {
       img.src = currentFrame(index)
-      context!.drawImage(img, 0, 0)
+      if (context !== null) {
+        context.drawImage(img, 0, 0)
+      }
     }
 
     window.addEventListener('scroll', () => {
