@@ -55,7 +55,7 @@ const Animation = () => {
     <section>
       <canvas
         id="anim"
-        data-id="ball"
+        data-id="coin"
         data-count="830"
         height="1080"
         width="1920"

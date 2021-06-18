@@ -7,10 +7,11 @@ const Header = () => {
     <header>
       <nav>
         <ul>
-          <li>Ball</li>
-          <li className="active">Coin</li>
-          <li>Flame</li>
-          <li>Scissors</li>
+          <li>🏓</li>
+          <li>🪙</li>
+          <li>🔥</li>
+          <li>✂️</li>
+          <li>🙂</li>
         </ul>
       </nav>
     </header>
