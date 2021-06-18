@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import '../scss/animation.scss'
 
-const Animation = () => {
+const Animation = (props:any) => {
 
   useEffect(() => {
     const html = document.documentElement
     const canvas = document.getElementById('anim') as HTMLCanvasElement
     const context = canvas.getContext('2d')
 
-    const frameCount = Number(canvas.dataset.count)
+    const frameCount = props.frames
+    console.log(frameCount)
     const currentFrame = (index:number) => (
-      `../videos/${canvas.dataset.id}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
+      `videos/${props.video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
     )
 
     document.body.style.height = `${frameCount * 3}vh`
 
-    const preloadImages = () => {
+    const preloadImages = async () => {
       for (let i = 1; i < frameCount; i++) {
         const img = new Image()
         img.src = currentFrame(i)
@@ -25,8 +27,6 @@ const Animation = () => {
 
     const img = new Image()
     img.src = currentFrame(1)
-    canvas.width=1920
-    canvas.height=1080
     img.onload=function() {
       if (context !== null) {
         context.drawImage(img, 0, 0)
@@ -59,13 +59,16 @@ const Animation = () => {
     <section>
       <canvas
         id="anim"
-        data-id="coin"
-        data-count="830"
         height="1080"
         width="1920"
       />
     </section>
   )
+}
+
+Animation.propTypes = {
+  video: PropTypes.string,
+  frames: PropTypes.number
 }
 
 export default Animation
