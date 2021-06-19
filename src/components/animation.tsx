@@ -15,7 +15,7 @@ const Animation = (props:any) => {
       `videos/${props.video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
     )
 
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 1)
     document.body.style.height = `${frameCount * 3}vh`
 
     if (context !== null) {
@@ -51,6 +51,9 @@ const Animation = (props:any) => {
       const maxScrollTop = html.scrollHeight - window.innerHeight
       if (scrollTop === maxScrollTop) {
         window.scrollTo(0, 0)
+      }
+      if (scrollTop === 0) {
+        window.scrollTo(0, maxScrollTop)
       }
       const scrollFraction = scrollTop / maxScrollTop
       const frameIndex = Math.min(
