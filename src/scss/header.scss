@@ -7,6 +7,12 @@ header {
   background: transparent;
   padding: 0 12rem;
   width: 100vw;
+  opacity: 0;
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
 }
 
 .menu {
