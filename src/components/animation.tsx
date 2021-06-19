@@ -6,7 +6,6 @@ import '../scss/animation.scss'
 const Animation = (props:any) => {
 
   useEffect(() => {
-    console.log(props.video)
     const html = document.documentElement
     const canvas = document.getElementById('anim') as HTMLCanvasElement
     const context = canvas.getContext('2d')
@@ -62,9 +61,7 @@ const Animation = (props:any) => {
 
   return (
     <section>
-      <canvas
-        id="anim"
-      />
+      <canvas id="anim"></canvas>
     </section>
   )
 }
