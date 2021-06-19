@@ -6,12 +6,14 @@ import '../scss/animation.scss'
 const Animation = (props:any) => {
 
   useEffect(() => {
+    console.log(props.video)
     const html = document.documentElement
     const canvas = document.getElementById('anim') as HTMLCanvasElement
     const context = canvas.getContext('2d')
 
+    context!.clearRect(0, 0, canvas.width, canvas.height)
+
     const frameCount = props.frames
-    console.log(frameCount)
     const currentFrame = (index:number) => (
       `videos/${props.video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
     )
@@ -27,8 +29,11 @@ const Animation = (props:any) => {
 
     const img = new Image()
     img.src = currentFrame(1)
+    canvas.width=1920
+    canvas.height=1080
     img.onload=function() {
       if (context !== null) {
+        context.clearRect(0, 0, canvas.width, canvas.height)
         context.drawImage(img, 0, 0)
       }
     }
@@ -53,14 +58,12 @@ const Animation = (props:any) => {
     })
 
     preloadImages()
-  })
+  }, [props.video])
 
   return (
     <section>
       <canvas
         id="anim"
-        height="1080"
-        width="1920"
       />
     </section>
   )
