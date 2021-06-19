@@ -9,7 +9,6 @@ const Animation = (props:any) => {
     const html = document.documentElement
     const canvas = document.getElementById('anim') as HTMLCanvasElement
     const context = canvas.getContext('2d')
-    let frameIndex = 0
 
     const frameCount = props.frames
     const currentFrame = (index:number) => (
@@ -18,6 +17,7 @@ const Animation = (props:any) => {
 
     window.scrollTo(0, 0)
     document.body.style.height = `${frameCount * 3}vh`
+
     if (context !== null) {
       context.clearRect(0, 0, canvas.width, canvas.height)
     }
@@ -47,14 +47,16 @@ const Animation = (props:any) => {
     }
 
     window.addEventListener('scroll', () => {
-      const scrollTop = html.scrollTop
+      let scrollTop = html.scrollTop
       const maxScrollTop = html.scrollHeight - window.innerHeight
+      if (scrollTop === maxScrollTop) {
+        window.scrollTo(0, 0)
+      }
       const scrollFraction = scrollTop / maxScrollTop
-      frameIndex = Math.min(
+      const frameIndex = Math.min(
         frameCount - 1,
         Math.ceil(scrollFraction * frameCount)
       )
-      console.log(frameIndex)
       requestAnimationFrame(() => updateImage(frameIndex + 1))
     })
 
