@@ -7,7 +7,3 @@ node_modules
 *.log
 .env
 dist
-*.css
-*.css.map
-.svelte-kit
-package
