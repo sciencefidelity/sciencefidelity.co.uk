@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import Header from './components/header'
 import './scss/App.scss'
 import Animation from './components/animation'
 
-const App = () => {
+const App:FC = () => {
 
   const dataId:string[] = ['ball', 'coin', 'flame', 'scissors', 'bounce']
   const dataCount:number[] = [830, 602, 600, 337, 260]
