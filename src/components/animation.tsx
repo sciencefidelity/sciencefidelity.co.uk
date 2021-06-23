@@ -8,16 +8,16 @@ interface Props {
   frames: number
 }
 
-const Animation:FC<Props> = (props) => {
+const Animation:FC<Props> = ({ video, frames }) => {
 
   useEffect(() => {
     const html = document.documentElement
     const canvas = document.getElementById('anim') as HTMLCanvasElement
     const context = canvas.getContext('2d')
 
-    const frameCount = props.frames
+    const frameCount = frames
     const currentFrame = (index:number) => (
-      `videos/${props.video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
+      `videos/${video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
     )
 
     window.scrollTo(0, 1)
@@ -69,7 +69,7 @@ const Animation:FC<Props> = (props) => {
     })
 
     preloadImages()
-  }, [props.video])
+  }, [video])
 
   return (
     <section>
@@ -79,8 +79,8 @@ const Animation:FC<Props> = (props) => {
 }
 
 Animation.propTypes = {
-  video: PropTypes.string,
-  frames: PropTypes.number
+  video: PropTypes.string.isRequired,
+  frames: PropTypes.number.isRequired
 }
 
 export default Animation
