@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react'
-import PropTypes from 'prop-types'
 
 import Header from './components/header'
 import './scss/App.scss'
@@ -28,13 +27,6 @@ const App:FC = () => {
       </main>
     </div>
   )
-}
-
-App.propTypes = {
-  dataId: PropTypes.arrayOf(PropTypes.string),
-  dataCount: PropTypes.arrayOf(PropTypes.number),
-  video: PropTypes.string,
-  frames: PropTypes.number
 }
 
 export default App
