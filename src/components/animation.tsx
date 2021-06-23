@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import '../scss/animation.scss'
 
-const Animation = (props:any) => {
+interface Props {
+  video: string,
+  frames: number
+}
+
+const Animation:FC<Props> = (props) => {
 
   useEffect(() => {
     const html = document.documentElement
