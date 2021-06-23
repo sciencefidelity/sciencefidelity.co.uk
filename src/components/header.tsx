@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import '../scss/header.scss'
 
-const Header = (props:any) => {
+interface Props {
+  changeVideo: (active: number) => void
+}
+
+const Header:FC<Props> = (props) => {
 
   return (
     <header>
