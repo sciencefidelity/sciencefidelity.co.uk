@@ -18,7 +18,7 @@ const App:FC = () => {
   return (
     <div className="App">
       <Header
-        changeVideo={(active:any) => setActive(active)}
+        changeVideo={(active) => setActive(active)}
       />
       <main>
         <Animation
