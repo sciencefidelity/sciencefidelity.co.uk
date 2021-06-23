@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import PropTypes from 'prop-types'
 
 import '../scss/header.scss'
 
@@ -21,6 +22,10 @@ const Header:FC<Props> = ({ changeVideo }) => {
       </nav>
     </header>
   )
+}
+
+Header.propTypes = {
+  changeVideo: PropTypes.func.isRequired
 }
 
 export default Header
