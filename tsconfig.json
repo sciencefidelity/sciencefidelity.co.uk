@@ -21,7 +21,7 @@
     /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
-    "types": ["mocha", "snowpack-env"],
+    "types": ["chai", "mocha", "react", "react-dom", "prop-type", "snowpack-env"],
     "typeRoots": [ "./types", "./node_modules/@types"],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
