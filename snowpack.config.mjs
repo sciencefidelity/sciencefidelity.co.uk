@@ -6,10 +6,11 @@ export default {
     src: '/dist',
   },
   plugins: [
+    '@snowpack/plugin-dotenv',
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-sass',
-    '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
+    '@snowpack/plugin-webpack',
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
