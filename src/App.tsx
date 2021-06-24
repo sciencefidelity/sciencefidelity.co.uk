@@ -17,7 +17,10 @@ const App:FC = () => {
   return (
     <div className="App">
       <Header
-        changeVideo={(active) => setActive(active)}
+        changeVideo={(active) => {
+          window.location.reload()
+          setActive(active)
+        }}
       />
       <main>
         <Animation
