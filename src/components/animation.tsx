@@ -12,7 +12,7 @@ const Animation:FC<Props> = ({ video, frames }) => {
 
   useEffect(() => {
     const html = document.documentElement
-    const canvas = document.getElementById('anim') as HTMLCanvasElement
+    const canvas = document.getElementById(video) as HTMLCanvasElement
     const context = canvas.getContext('2d')
 
     const frameCount = frames
@@ -20,7 +20,7 @@ const Animation:FC<Props> = ({ video, frames }) => {
       `videos/${video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
     )
 
-    window.scrollTo(0, 1)
+    window.scrollTo(0, 0)
     document.body.style.height = `${frameCount * 3}vh`
 
     if (context !== null) {
@@ -54,12 +54,6 @@ const Animation:FC<Props> = ({ video, frames }) => {
     window.addEventListener('scroll', () => {
       let scrollTop = html.scrollTop
       const maxScrollTop = html.scrollHeight - window.innerHeight
-      if (scrollTop === maxScrollTop) {
-        window.scrollTo(0, 0)
-      }
-      if (scrollTop === 0) {
-        window.scrollTo(0, maxScrollTop)
-      }
       const scrollFraction = scrollTop / maxScrollTop
       const frameIndex = Math.min(
         frameCount - 1,
@@ -73,7 +67,11 @@ const Animation:FC<Props> = ({ video, frames }) => {
 
   return (
     <section>
-      <canvas id="anim"></canvas>
+      <canvas id="ball"></canvas>
+      <canvas id="coin"></canvas>
+      <canvas id="flame" className="active"></canvas>
+      <canvas id="scissors"></canvas>
+      <canvas id="bounce"></canvas>
     </section>
   )
 }
