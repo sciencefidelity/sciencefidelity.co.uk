@@ -15,6 +15,8 @@ const Animation:FC<Props> = ({ video, frames }) => {
     const canvas = document.getElementById(video) as HTMLCanvasElement
     const context = canvas.getContext('2d')
 
+    canvas.style.display = 'block'
+
     const frameCount = frames
     const currentFrame = (index:number) => (
       `videos/${video}/frame-${index.toString().padStart(6, '0')}.TIFF.webp`
@@ -69,7 +71,7 @@ const Animation:FC<Props> = ({ video, frames }) => {
     <section>
       <canvas id="ball"></canvas>
       <canvas id="coin"></canvas>
-      <canvas id="flame" className="active"></canvas>
+      <canvas id="flame"></canvas>
       <canvas id="scissors"></canvas>
       <canvas id="bounce"></canvas>
     </section>
