@@ -16,20 +16,27 @@ header {
 }
 
 .menu {
-  font-size: 3rem;
   list-style: none;
   padding: 0.6rem 0 0 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  line-height: 4rem;
+  line-height: 5rem;
   text-transform: lowercase;
   font-weight: 300;
   color: $text;
   text-align: center;
   &__item {
+    font-size: 3rem;
     cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    transition: font-size 0.3s;
+    &:hover {
+      font-size: 3.5rem;
+      transition: font-size 0.3s;
+    }
   }
 }
 
