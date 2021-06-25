@@ -13,7 +13,13 @@ const Animation:FC<Props> = ({ video, frames }) => {
   useEffect(() => {
     const html = document.documentElement
     const canvas = document.getElementById(video) as HTMLCanvasElement
-    const context = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d')
+    const img = new Image()
+
+    const win = {
+      w: window.innerWidth,
+      h: window.innerHeight,
+    }
 
     const frameCount = frames
     const currentFrame = (index:number) => (
@@ -23,33 +29,64 @@ const Animation:FC<Props> = ({ video, frames }) => {
     window.scrollTo(0, 0)
     document.body.style.height = `${frameCount * 3}vh`
 
-    if (context !== null) {
-      context.clearRect(0, 0, canvas.width, canvas.height)
+    if (ctx !== null) {
+      ctx.clearRect(0, 0, win.w, win.h)
     }
 
     const preloadImages = () => {
-      for (let i = 1; i < frameCount; i++) {
+      for (let i = 1; i <= frameCount; i++) {
         const img = new Image()
         img.src = currentFrame(i)
       }
     }
 
-    const img = new Image()
+    const imgRatio = 1920 / 1080
+    const winRatio =  window.innerWidth / window.innerHeight
+
     img.src = currentFrame(1)
-    canvas.width=1920
-    canvas.height=1080
-    img.onload = function() {
-      if (context !== null) {
-        context.drawImage(img, 0, 0)
+
+    const coverImg = () => {
+      if (ctx !== null) {
+        if (imgRatio > winRatio) {
+          const h = window.innerWidth * imgRatio
+          ctx.drawImage(img, 0, (window.innerHeight - h) / 2, window.innerWidth, h)
+        }
+        if (imgRatio < winRatio) {
+          const w = window.innerWidth * winRatio / imgRatio
+          ctx.drawImage(img, (win.w - w) / 2, 0, w, window.innerHeight)
+        }
       }
     }
 
+    const render = () => {
+      ctx!.clearRect(0, 0, win.w, win.h)
+      coverImg()
+    }
+
+    const init = () => {
+      resize()
+      render()
+    }
+
+    img.onload = init
+
+    const resize = () => {
+      win.w = window.innerWidth
+      win.h = window.innerHeight
+      canvas.width = win.w
+      canvas.height = win.h
+      canvas.style.width = `${win.w}px`
+      canvas.style.height = `${win.h}px`
+    }
+    window.addEventListener('resize', resize)
+
     const updateImage = (index:number) => {
       img.src = currentFrame(index)
-      if (context !== null) {
-        context.drawImage(img, 0, 0)
+      if (ctx !== null) {
+        ctx.drawImage(img, 0, 0)
       }
     }
+
 
     window.addEventListener('scroll', () => {
       let scrollTop = html.scrollTop

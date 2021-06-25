@@ -4,6 +4,10 @@ body {
   scrollbar-width: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
