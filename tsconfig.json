@@ -1,5 +1,4 @@
 {
-  "include": ["src", "types"],
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
@@ -20,6 +19,7 @@
     "noEmit": true,
     /* Additional Options */
     "strict": true,
+    "noImplicitAny": true,
     "skipLibCheck": true,
     "types": ["chai", "mocha", "react", "react-dom", "prop-types", "snowpack-env"],
     "typeRoots": [ "./types", "./node_modules/@types"],
@@ -31,6 +31,7 @@
   "include": ["src/*", "src/**/*"],
   "exclude": [
     "node_modules",
+    "typings",
     "./node_modules",
     "./node_modules/*",
     "./node_modules/@types/node/index.d.ts",
