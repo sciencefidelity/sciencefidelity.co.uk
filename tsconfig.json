@@ -28,12 +28,12 @@
     "allowSyntheticDefaultImports": true,
     "importsNotUsedAsValues": "error",
   },
-  "include": ["src/*", "src/**/*"],
+  "include": ["src/*", "src/**/*", "types/**/*"],
   "exclude": [
     "node_modules",
     "typings",
     "./node_modules",
     "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",
+    "./node_modules/@types/node/index.d.ts"
   ],
 }
