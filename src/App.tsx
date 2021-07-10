@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react'
-
 import Header from './components/header'
-import './scss/App.scss'
 import Animation from './components/animation'
+import './scss/App.scss'
 
 const App:FC = () => {
 
