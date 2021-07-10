@@ -1,5 +1,5 @@
 process.env.NODE_ENV = 'test'
 
-export default {
+module.exports = {
   plugins: [require('@snowpack/web-test-runner-plugin')()],
 }
