@@ -1,0 +1,15 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\nyarn build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\nyarn dev"
+    }
+  },
+  "identifier" : "430A9C80-C385-4FF8-A7C9-732F5490B462",
+  "openLogOnRun" : "start",
+  "persistent" : true
+}
