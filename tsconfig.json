@@ -5,9 +5,7 @@
     "moduleResolution": "node",
     "jsx": "preserve",
     "baseUrl": "./",
-    "lib": [
-      "es5", "es6", "dom", "es2017", "dom.iterable"
-    ],
+    "lib": ["es5", "es6", "dom", "es2017", "dom.iterable"],
     /* paths - import rewriting/resolving */
     "paths": {
       // If you configured any Snowpack aliases, add them here.
@@ -21,12 +19,19 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "types": ["chai", "mocha", "react", "react-dom", "prop-types", "snowpack-env"],
-    "typeRoots": [ "./types", "./node_modules/@types"],
+    "types": [
+      "chai",
+      "mocha",
+      "react",
+      "react-dom",
+      "prop-types",
+      "snowpack-env"
+    ],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error",
+    "importsNotUsedAsValues": "error"
   },
   "include": ["src/*", "src/**/*", "types/**/*"],
   "exclude": [
@@ -35,5 +40,5 @@
     "./node_modules",
     "./node_modules/*",
     "./node_modules/@types/node/index.d.ts"
-  ],
+  ]
 }
