@@ -25,7 +25,7 @@
     "@types/react-dom": "^17.0.10",
     "@types/snowpack-env": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
+    "@typescript-eslint/parser": "^4.33.0",
     "@web/test-runner": "^0.13.18",
     "@web/test-runner-puppeteer": "^0.10.0",
     "chai": "^4.3.4",
