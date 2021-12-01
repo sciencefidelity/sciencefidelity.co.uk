@@ -1976,7 +1976,7 @@
     "@types/parse5" "^5.0.3"
     parse5 "^6.0.1"
 
-"@web/test-runner-chrome@^0.10.3", "@web/test-runner-chrome@^0.10.5":
+"@web/test-runner-chrome@^0.10.5":
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/@web/test-runner-chrome/-/test-runner-chrome-0.10.5.tgz#66b4390a78149bfc5b696cba6b26deac665a1703"
   integrity sha512-1dF7bEMe6Jb42z5VFreis4rafe0DLBq4PUjqkYbXlHCFbwnc3zWJFgU73ns8lIt9HCo/ADIWUFuPXrqmWoFBFQ==
@@ -1994,10 +1994,10 @@
     "@web/test-runner-core" "^0.10.20"
     mkdirp "^1.0.4"
 
-"@web/test-runner-core@^0.10.20", "@web/test-runner-core@^0.10.21":
-  version "0.10.21"
-  resolved "https://registry.yarnpkg.com/@web/test-runner-core/-/test-runner-core-0.10.21.tgz#fe8a01f3595330940189ff4b9d32514ede55d184"
-  integrity sha512-Dh1TJITyil4w22DXwCmYEyp4BBzRFxRqiUbJ/iPziT1E5heAx/pZPug1oFs83LKUc/crOcDhObz6u4ynGWz9wQ==
+"@web/test-runner-core@^0.10.20", "@web/test-runner-core@^0.10.22":
+  version "0.10.22"
+  resolved "https://registry.yarnpkg.com/@web/test-runner-core/-/test-runner-core-0.10.22.tgz#34bb67d12a79b01dc79c816f3d76f3419ef50eaf"
+  integrity sha512-0jzJIl/PTZa6PCG/noHAFZT2DTcp+OYGmYOnZ2wcHAO3KwtJKnBVSuxgdOzFdmfvoO7TYAXo5AH+MvTZXMWsZw==
   dependencies:
     "@babel/code-frame" "^7.12.11"
     "@types/babel__code-frame" "^7.0.2"
@@ -2036,10 +2036,10 @@
     picomatch "^2.2.2"
     v8-to-istanbul "^8.0.0"
 
-"@web/test-runner-mocha@^0.7.4":
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@web/test-runner-mocha/-/test-runner-mocha-0.7.4.tgz#a386db80b166cf264ebe16a44fc97cb2696d645c"
-  integrity sha512-EvAz6eCyBpVyXUq/bTSYpSwcSd/jH8XY+vAwS/xprWNo2WFY0LW0FcwcuWdq4LckDxTZVXaGb1dj3lDfEsOeVw==
+"@web/test-runner-mocha@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@web/test-runner-mocha/-/test-runner-mocha-0.7.5.tgz#696f8cb7f5118a72bd7ac5778367ae3bd3fb92cd"
+  integrity sha512-12/OBq6efPCAvJpcz3XJs2OO5nHe7GtBibZ8Il1a0QtsGpRmuJ4/m1EF0Fj9f6KHg7JdpGo18A37oE+5hXjHwg==
   dependencies:
     "@types/mocha" "^8.2.0"
     "@web/test-runner-core" "^0.10.20"
@@ -2053,18 +2053,18 @@
     "@web/test-runner-core" "^0.10.20"
     puppeteer "^11.0.0"
 
-"@web/test-runner@^0.13.18":
-  version "0.13.18"
-  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.13.18.tgz#126d61e44e670e4f7b71addc8bfa86dd857f5aad"
-  integrity sha512-VeKs5RG3PbGc466Ylr0kk1S8vtXQ71Ll7g+t3bkScqlAAUo17qRpetQQjhUWQdU4uAQfteL92GLyfCc06VeYpA==
+"@web/test-runner@^0.13.22":
+  version "0.13.22"
+  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.13.22.tgz#28ed14c78efb1b92424bfa50069c90d68a3d7abd"
+  integrity sha512-s4P3X4z8RlxqbQgO4K7aPVZTlum9juuQ9ZIxvZlua+KMTG5J5Utr7Drey/tGcx+BwVFUAtQLr20IEWA+38d+fA==
   dependencies:
     "@web/browser-logs" "^0.2.2"
     "@web/config-loader" "^0.1.3"
     "@web/dev-server" "^0.1.24"
-    "@web/test-runner-chrome" "^0.10.3"
+    "@web/test-runner-chrome" "^0.10.5"
     "@web/test-runner-commands" "^0.5.10"
-    "@web/test-runner-core" "^0.10.21"
-    "@web/test-runner-mocha" "^0.7.4"
+    "@web/test-runner-core" "^0.10.22"
+    "@web/test-runner-mocha" "^0.7.5"
     camelcase "^6.2.0"
     command-line-args "^5.1.1"
     command-line-usage "^6.1.1"
