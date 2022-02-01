@@ -27,7 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "@web/test-runner": "^0.13.26",
-    "@web/test-runner-puppeteer": "^0.10.4",
+    "@web/test-runner-puppeteer": "^0.10.5",
     "chai": "^4.3.6",
     "eslint": "^7.32.0",
     "snowpack": "^3.8.8",
