@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "useUnknownInCatchVariables": false,
+    "types": [
+      "bcryptjs",
+      "glob",
+      "jest",
+      "jsonwebtoken",
+      "koa",
+      "koa-basic-auth",
+      "koa-compress",
+      "koa-pug",
+      "koa-router",
+      "koa-session",
+      "koa-static",
+      "koa-static-cache",
+      "mongoose",
+      "node",
+      "pug",
+      "underscore"
+    ],
+    "paths": {
+      "*" : ["types/*", "*"],
+      "controllers/*": ["src/controllers/*"],
+      "middlewares/*": ["src/middlewares/*"],
+      "models/*": ["src/models/*"],
+      "routes/*": ["src/routes/*"],
+      "utils/*": ["src/utils/*"]
+    }
+  },
+  "include": ["src/*", "src/**/*"],
+  "exclude": [
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts"
+  ]
+}
