@@ -1,14 +1,14 @@
 import React, { FC } from "react"
 import { IKImage } from "imagekitio-react"
 
-const urlEndpoint = import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT
-
 const Index: FC = () => {
   return (
-    <div>
+    <div className="container">
       <IKImage
-        urlEndpoint={urlEndpoint}
+        className="image"
         path="default-image.jpg"
+        width={400}
+        height={400}
       />
     </div>
   )
