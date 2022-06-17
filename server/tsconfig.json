@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "useUnknownInCatchVariables": false,
-    "types": ["node"],
+    "types": ["express", "module-alias", "node"],
     "paths": {
       "*" : ["types/*", "*"],
       "controllers/*": ["src/controllers/*"],
