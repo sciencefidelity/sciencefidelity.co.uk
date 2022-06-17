@@ -1,16 +1,53 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "sciencefidelity-server",
+  "version": "0.1.0",
+  "description": "Blog image uploader",
+  "main": "dist/app.js",
   "scripts": {
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
+    "lint": "concurrently 'yarn:lint:*'",
+    "lint:js": "eslint \"**/*.{ts,js}\"",
+    "lint:format": "prettier --check \"**/*.{ts,js,json,md,yml}\"",
+    "fix": "concurrently 'yarn:fix:*'",
+    "fix:js": "eslint --fix \"**/*.{ts,js}\"",
+    "fix:format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+    "prebuild": "yarn fix",
+    "build": "tsc",
+    "prestart": "yarn build",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "_moduleAliases": {
+    "controllers": "src/controllers",
+    "middlewares": "src/middlewares",
+    "models": "src/models",
+    "routes": "src/routes",
+    "utils": "src/utils/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sciencefidelity/sciencefidelity.co.uk.git"
+  },
+  "keywords": ["express"],
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sciencefidelity/sciencefidelity.co.uk/issues"
+  },
+  "homepage": "https://github.com/sciencefidelity/sciencefidelity.co.uk#readme",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "imagekit": "^3.2.5"
+    "imagekit": "^3.2.5",
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "concurrently": "^7.2.2",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
   }
 }
