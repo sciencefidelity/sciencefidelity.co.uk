@@ -1,0 +1,12 @@
+html {
+  font-size: 62.5%;
+  background-color: var(--grey-000);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: auto;
+  font-size: calc(10px + 2vmin);
+  color: var(--grey-850);
+}
