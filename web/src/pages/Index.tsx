@@ -7,8 +7,11 @@ const Index: FC = () => {
       <IKImage
         className="image"
         path="default-image.jpg"
-        width={400}
-        height={400}
+        transformation={[{ width: 300, height: 700 }]}
+        lqip={{ active: true, quality: 10 }}
+        loading="lazy"
+        width={300}
+        height={700}
       />
     </div>
   )
