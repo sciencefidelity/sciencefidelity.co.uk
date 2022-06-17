@@ -6,11 +6,11 @@ const Index: FC = () => {
     <div className="container">
       <IKImage
         className="image"
-        path="default-image.jpg"
-        transformation={[{ width: 300, height: 700 }]}
+        path="test-upload_Ws458Rat5.jpg"
+        transformation={[{ width: 800, height: 1400 }]}
         lqip={{ active: true, quality: 10 }}
         loading="lazy"
-        width={300}
+        width={400}
         height={700}
       />
     </div>
