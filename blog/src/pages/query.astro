@@ -1,6 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro"
 import GhostContentAPI from "@tryghost/content-api"
+import { Code } from "astro/components"
+import Layout from "../layouts/Layout.astro"
 
 const api = new GhostContentAPI({
   url: import.meta.env.PUBLIC_GHOST_API_URL,
@@ -16,20 +17,18 @@ const getProps = async () => {
 
 const response = await getProps()
 const post = response[0]
+const json = JSON.stringify(post, undefined, 2)
 ---
-<Layout title="Welcome to Astro.">
-	<main class="container">
-    <h1>{post.title}</h1>
-    <div class="body" set:html={post.html} />
-	</main>
+<Layout title="Welcome Home.">
+  <main class="code">
+    <Code code={json} lang="json" theme="dracula" wrap />
+  </main>
 </Layout>
 
-<style lang="scss">
-.body {
-
-}
-
-a {
-  color: red;
+<style>
+.code {
+  background-color: #282A36;
+  font-family: MonoLisa, monospace !important;
+  font-size: 0.8rem;
 }
 </style>
