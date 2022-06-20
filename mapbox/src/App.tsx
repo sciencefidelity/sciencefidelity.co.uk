@@ -4,16 +4,16 @@ import mapboxgl, { Map } from "mapbox-gl"
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
 const App = () => {
-  const mapContainer = useRef<any>(null)
-  const map = useRef<any>(null)
-  const [lng, setLng] = useState(-70.9)
-  const [lat, setLat] = useState(42.35)
-  const [zoom, setZoom] = useState(9)
+  const mapContainer = useRef<HTMLDivElement | null>(null)
+  const map = useRef<Map | null>(null)
+  const [lng, setLng] = useState(37.62)
+  const [lat, setLat] = useState(55.75)
+  const [zoom, setZoom] = useState(12)
 
   useEffect(() => {
     if (map.current) return
     map.current = new mapboxgl.Map({
-      container: mapContainer.current,
+      container: mapContainer.current as HTMLDivElement,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng, lat],
       zoom: zoom
@@ -23,9 +23,9 @@ const App = () => {
   useEffect(() => {
     if (!map.current) return
     map.current.on("move", () => {
-      setLng(map?.current?.getCenter().lng.toFixed(4))
-      setLat(map?.current?.getCenter().lat.toFixed(4))
-      setZoom(map?.current?.getZoom().toFixed(2))
+      map.current && setLng(map?.current?.getCenter().lng)
+      map.current && setLat(map?.current?.getCenter().lat)
+      map.current && setZoom(map?.current?.getZoom())
     })
   })
   return (
