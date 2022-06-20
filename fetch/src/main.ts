@@ -1,23 +1,26 @@
-import "sanitize.css/sanitize.css"
-import "sanitize.css/assets.css"
-import "sanitize.css/reduce-motion.css"
-import "sanitize.css/typography.css"
-import "@/style.scss"
+const list = document.getElementById("list") as HTMLLIElement
 
-const counter = document.querySelector("#counter") as HTMLSpanElement
-let seconds = 0
-
-export const add = (a: number, b: number): number => {
-  return a + b
+interface Person {
+  avatar: string
+  first_name: string
+  last_name: string
+  email: string
 }
 
-export const timer = (): void => {
-  setInterval(() => {
-    seconds += 1
-    if (counter) {
-      counter.textContent = seconds.toString()
+fetch("https://reqres.in/api/users")
+  .then(res => res.json())
+  .then(people => {
+    const { data }: { data: Person[] } = people
+    console.log(data)
+    let str = ""
+    for (let i = 0; i <= data.length; i++) {
+      if (data[i]) {
+        str += `<img src=${data[i].avatar} />`
+      }
     }
-  }, 1000)
-}
+    list.innerHTML = str
+  })
+  // .then(data => root.innerHTML = `<pre>${JSON.stringify(data.data, undefined, 2)}</pre>`)
+  .catch(error => console.log("ERROR", error.message))
 
-timer()
+export {}
