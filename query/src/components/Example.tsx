@@ -1,20 +1,11 @@
+import { useState } from "react"
 import { useQuery } from "react-query"
-// import { useImmer } from "use-immer"
 import { z } from "zod"
+import { Users } from "./Users"
 
 const req = new Request(
   "https://randomuser.me/api/?nat=es,fi,fr,gb&results=50&seed=science"
 )
-// async function getGithubStats() {
-//   try {
-//     const res = await fetch(req)
-//     const data = await res.json()
-//     return data
-//   } catch (error) {
-//     console.log("ERROR", error.message)
-//   }
-// }
-// const data = await getGithubStats()
 
 const Person = z.object({
   dob: z.object({
@@ -40,9 +31,8 @@ const Person = z.object({
   })
 })
 
-type Person = z.infer<typeof Person>
-
-const countries = ["ES", "FR", "FI", "GB"]
+// const Results = z.array(Person)
+export type Person = z.infer<typeof Person>
 
 function sort(people: Person[]) {
   return people.sort((a, b) => {
@@ -54,6 +44,12 @@ function sort(people: Person[]) {
   })
 }
 
+function nationality(users: Person[], nat: string) {
+  return users.filter(u => u.nat === nat)
+}
+
+const countries = ["ES", "FR", "FI", "GB"]
+
 export const Example = () => {
   const { isLoading, error, data } = useQuery("userData", () =>
     fetch(req).then(res => res.json())
@@ -64,42 +60,59 @@ export const Example = () => {
     errorMessage = `An error has occurred: ${error.message}`
   }
   if (error) return <div>{errorMessage}</div>
-  
+
   const { results }: { results: Person[] } = data
-  const users = sort(results)
-  // const [users, updateUsers] = useImmer(people)
+  // Results.parse(results)
+  const initialUsers = sort(results)
+  const [users, setUsers] = useState(initialUsers)
+  const [currentNat, setCurrentNat] = useState("X")
+
+  function handleFilterUsers(nat: string) {
+    setCurrentNat(nat)
+    if (nat === "X") {
+      setUsers(initialUsers) 
+    } else {
+      setUsers(nationality(initialUsers, nat))
+    }
+  }
+
   return (
-    <div  
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "2rem",
-      }}
-    >
-      {/* <pre style={{fontSize: "1rem"}}>{JSON.stringify(results[0], undefined, 2)}</pre> */}
-      {countries.map((country, idx) => (
-        <button key={idx} style={{cursor: "pointer"}}>{country}</button>
-      ))}
-      {users.map(user => (
-        <div 
-          key={user.email}
-          style={{
-            width: "100%",
-            display: "grid",
-            placeItems: "center",
-          }}
-        >
-          <img 
-            src={user.picture.large} 
-            alt={user.name.first + " " + user.name.last}
-            style={{ borderRadius: "100%" }}
-          />
-          <h1 style={{fontSize: "1rem"}}>
-            {user.name.first} {user.name.last}
-          </h1>
-          <h2 style={{fontSize: "1rem"}}>{user.location.country}</h2>
-        </div>
-      ))}
-    </div>
+    <main>
+      <ul
+        style={{
+          display: "grid",
+          gap: "1rem",
+          gridTemplateColumns: "repeat(5, 1fr)",
+          placeItems: "center",
+          paddingBlock: "2rem", 
+        }}
+      >
+        <li>
+          <button 
+            disabled={users.length === initialUsers.length}
+            style={{
+              cursor: "pointer",
+              width: "5rem",
+              padding: "0.5rem 1rem",
+            }}
+            onClick={() => handleFilterUsers("X")}
+          >X</button>
+        </li>
+        {countries.map((country, idx) => (
+          <li key={idx}>
+            <button
+              disabled={currentNat === country}
+              style={{
+                cursor: "pointer",
+                width: "5rem",
+                padding: "0.5rem 1rem",
+              }}
+              onClick={() => handleFilterUsers(country)}
+            >{country}</button>
+          </li>
+        ))}
+      </ul>
+      <Users users={users} />
+    </main>
   )
 }
