@@ -10,24 +10,24 @@ const req = new Request(
 const Person = z.object({
   dob: z.object({
     date: z.date(),
-    age: z.number(),
+    age: z.number()
   }),
   email: z.string().email(),
   gender: z.string(),
   location: z.object({
     city: z.string(),
-    country: z.string(), 
+    country: z.string()
   }),
   nat: z.string(),
   name: z.object({
     title: z.string(),
     first: z.string(),
-    last: z.string(),
+    last: z.string()
   }),
   picture: z.object({
     large: z.string().url(),
     medium: z.string().url(),
-    thumbnail: z.string().url(),
+    thumbnail: z.string().url()
   })
 })
 
@@ -70,7 +70,7 @@ export const Example = () => {
   function handleFilterUsers(nat: string) {
     setCurrentNat(nat)
     if (nat === "X") {
-      setUsers(initialUsers) 
+      setUsers(initialUsers)
     } else {
       setUsers(nationality(initialUsers, nat))
     }
@@ -84,19 +84,21 @@ export const Example = () => {
           gap: "1rem",
           gridTemplateColumns: "repeat(5, 1fr)",
           placeItems: "center",
-          paddingBlock: "2rem", 
+          paddingBlock: "2rem"
         }}
       >
         <li>
-          <button 
+          <button
             disabled={users.length === initialUsers.length}
             style={{
               cursor: "pointer",
               width: "5rem",
-              padding: "0.5rem 1rem",
+              padding: "0.5rem 1rem"
             }}
             onClick={() => handleFilterUsers("X")}
-          >X</button>
+          >
+            X
+          </button>
         </li>
         {countries.map((country, idx) => (
           <li key={idx}>
@@ -105,10 +107,12 @@ export const Example = () => {
               style={{
                 cursor: "pointer",
                 width: "5rem",
-                padding: "0.5rem 1rem",
+                padding: "0.5rem 1rem"
               }}
               onClick={() => handleFilterUsers(country)}
-            >{country}</button>
+            >
+              {country}
+            </button>
           </li>
         ))}
       </ul>
