@@ -9,7 +9,7 @@ const App: FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Example />
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   )
 }

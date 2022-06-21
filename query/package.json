@@ -19,7 +19,8 @@
     "modern-normalize": "^1.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-query": "^3.39.1"
+    "react-query": "^3.39.1",
+    "use-immer": "^0.7.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.3",
