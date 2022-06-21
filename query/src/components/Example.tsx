@@ -1,4 +1,5 @@
-import { Fragment,  useQuery } from "react-query"
+import { useQuery } from "react-query"
+import { useImmer } from "use-immer"
 
 const req = new Request(
   "https://randomuser.me/api/?nat=es,fi,fr,gb&results=50&seed=science"
@@ -62,15 +63,16 @@ export const Example = () => {
   const { isLoading, error, data } = useQuery("userData", () =>
     fetch(req).then(res => res.json())
   )
-
   if (isLoading) return <div>Loading...</div>
   let errorMessage = "An unknown error has occurred"
   if (error instanceof Error) {
     errorMessage = `An error has occurred: ${error.message}`
   }
   if (error) return <div>{errorMessage}</div>
+  
   const { results }: { results: Person[] } = data
-  const people = sort(results)
+  const users = sort(results)
+  // const [users, updateUsers] = useImmer(people)
   return (
     <div  
       style={{
@@ -83,9 +85,9 @@ export const Example = () => {
       {countries.map((country, idx) => (
         <button key={idx} style={{cursor: "pointer"}}>{country}</button>
       ))}
-      {people.map(person => (
+      {users.map(user => (
         <div 
-          key={person.email}
+          key={user.email}
           style={{
             width: "100%",
             display: "grid",
@@ -93,14 +95,14 @@ export const Example = () => {
           }}
         >
           <img 
-            src={person.picture.large} 
-            alt={person.name.first + " " + person.name.last}
+            src={user.picture.large} 
+            alt={user.name.first + " " + user.name.last}
             style={{ borderRadius: "100%" }}
           />
           <h1 style={{fontSize: "1rem"}}>
-            {person.name.first} {person.name.last}
+            {user.name.first} {user.name.last}
           </h1>
-          <h2 style={{fontSize: "1rem"}}>{person.location.country}</h2>
+          <h2 style={{fontSize: "1rem"}}>{user.location.country}</h2>
         </div>
       ))}
     </div>

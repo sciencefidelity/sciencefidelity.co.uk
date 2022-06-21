@@ -20,7 +20,8 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-query": "^3.39.1",
-    "use-immer": "^0.7.0"
+    "use-immer": "^0.7.0",
+    "zod": "^3.17.3"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.3",
