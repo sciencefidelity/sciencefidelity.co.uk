@@ -1,5 +1,6 @@
 import { useQuery } from "react-query"
-import { useImmer } from "use-immer"
+// import { useImmer } from "use-immer"
+import { z } from "zod"
 
 const req = new Request(
   "https://randomuser.me/api/?nat=es,fi,fr,gb&results=50&seed=science"
@@ -15,37 +16,31 @@ const req = new Request(
 // }
 // const data = await getGithubStats()
 
-interface Name {
-  title: string
-  first: string
-  last: string
-}
+const Person = z.object({
+  dob: z.object({
+    date: z.date(),
+    age: z.number(),
+  }),
+  email: z.string().email(),
+  gender: z.string(),
+  location: z.object({
+    city: z.string(),
+    country: z.string(), 
+  }),
+  nat: z.string(),
+  name: z.object({
+    title: z.string(),
+    first: z.string(),
+    last: z.string(),
+  }),
+  picture: z.object({
+    large: z.string().url(),
+    medium: z.string().url(),
+    thumbnail: z.string().url(),
+  })
+})
 
-interface Location {
-  city: string
-  country: string
-}
-
-interface DOB {
-  date: Date
-  age: number
-}
-
-interface Picture {
-  large: string
-  medium: string
-  thumbnail: string
-}
-
-interface Person {
-  gender: string
-  name: Name
-  location: Location
-  email: string
-  dob: DOB
-  nat: string
-  picture: Picture
-}
+type Person = z.infer<typeof Person>
 
 const countries = ["ES", "FR", "FI", "GB"]
 
