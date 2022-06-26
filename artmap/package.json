@@ -1,0 +1,54 @@
+{
+  "name": "artmap",
+  "version": "0.1.0",
+  "description": "Arts and Culture Map Wales",
+  "main": "dist/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
+    "lint": "concurrently 'yarn:lint:*'",
+    "lint:js": "eslint \"**/*.{ts,js}\"",
+    "lint:format": "prettier --check \"**/*.{ts,js,json,md,yml}\"",
+    "fix": "concurrently 'yarn:fix:*'",
+    "fix:js": "eslint --fix \"**/*.{ts,js}\"",
+    "fix:format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+    "prebuild": "yarn fix",
+    "build": "tsc && tsc-alias",
+    "prestart": "yarn build",
+    "start": "node ."
+  },
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
+  "license": "UNLICENSED",
+  "_moduleAliases": {
+    "controllers": "src/controllers",
+    "middlewares": "src/middlewares",
+    "models": "src/models",
+    "routes": "src/routes",
+    "utils": "src/utils/*"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "fastify": "^4.1.0",
+    "module-alias": "^2.2.2",
+    "tsc-alias": "^1.6.11"
+  },
+  "devDependencies": {
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.18",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  }
+}
