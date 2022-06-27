@@ -1,9 +1,14 @@
 {
   "name": "artmap",
-  "version": "0.1.0",
+  "private": true,
   "description": "Arts and Culture Map Wales",
+  "version": "0.1.0",
+  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
   "main": "dist/app.js",
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sciencefidelity/sciencefidelity.co.uk.git"
+  },
   "scripts": {
     "dev": "nodemon --config nodemon.json src/app.ts",
     "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
@@ -18,7 +23,6 @@
     "prestart": "yarn build",
     "start": "node ."
   },
-  "author": "Matt Cook <matt@sciencefidelity.co.uk>",
   "license": "UNLICENSED",
   "_moduleAliases": {
     "controllers": "src/controllers",
