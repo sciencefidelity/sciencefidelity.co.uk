@@ -1,0 +1,6 @@
+
+// get all items
+GET http://localhost:3000/items HTTP/1.1
+
+// get one item
+GET http://localhost:3000/items/1 HTTP/1.1

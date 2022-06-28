@@ -1,12 +1,24 @@
 import * as dotenv from "dotenv"
 import Fastify, { FastifyInstance } from "fastify"
+import { items } from "./items"
 
 dotenv.config({ path: ".env" })
 
+type Item = {
+  id: number
+  name: string
+}
+
 const server: FastifyInstance = Fastify({ logger: true })
 
-server.get("/", async (_request, _reply) => {
-  return { hello: "world" }
+server.get("/items", async (_, reply) => {
+  reply.send(items)
+})
+
+server.get("/items/:id", async (request, reply) => {
+  const { id } = request.params as Item
+  const item = items.find(item => item.id === id)
+  reply.send(item)
 })
 
 // server options
