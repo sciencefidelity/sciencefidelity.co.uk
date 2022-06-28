@@ -1,25 +1,22 @@
 import * as dotenv from "dotenv"
 import Fastify, { FastifyInstance } from "fastify"
-import { items } from "./items"
+import { routes } from "./routes"
 
 dotenv.config({ path: ".env" })
 
-type Item = {
-  id: number
-  name: string
-}
+const fastify: FastifyInstance = Fastify({ logger: true })
 
-const server: FastifyInstance = Fastify({ logger: true })
+fastify.register(routes)
 
-server.get("/items", async (_, reply) => {
-  reply.send(items)
-})
+// fastify.get("/items", async (_, reply) => {
+//   reply.send(items)
+// })
 
-server.get("/items/:id", async (request, reply) => {
-  const { id } = request.params as Item
-  const item = items.find(item => item.id === id)
-  reply.send(item)
-})
+// fastify.get("/items/:id", async (request, reply) => {
+//   const { id } = request.params as Item
+//   const item = items.find(item => item.id === id)
+//   reply.send(item)
+// })
 
 // server options
 const options = {
@@ -30,9 +27,9 @@ const options = {
 // start server
 const start = async () => {
   try {
-    await server.listen(options)
+    await fastify.listen(options)
   } catch (err) {
-    server.log.error(err)
+    fastify.log.error(err)
     process.exit(1)
   }
 }
