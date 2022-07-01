@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv"
 import Fastify, { FastifyInstance } from "fastify"
+
 import { routes } from "./routes"
 
 dotenv.config({ path: ".env" })
