@@ -6,7 +6,7 @@
   "author": "Matt Cook <matt@sciencefidelity.co.uk>",
   "license": "MIT",
   "engines": {
-    "node": "16.X"
+    "node": "18.X"
   },
   "dependencies": {
     "casper": "github:TryGhost/Casper#main",
