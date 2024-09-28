@@ -1,3 +1,4 @@
+.direnv
 dist
 build
 node_modules
